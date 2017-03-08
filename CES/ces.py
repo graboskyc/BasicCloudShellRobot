@@ -60,9 +60,9 @@ def _execute_job(job):
 
     current_executions.append(job['ExecutionId'])  # Keep track of current executions for update_status_loop.
     if job['TestArguments'] is not None:
-        command = 'cd /mnt/c/Users/chris/Documents/GitHub/BasicCloudShellRobot/Robot;robot --variable RESERVATIONID:{2} --variable SERVERADDRESS:{3} --variable ADMINUSER:{4} --variable ADMINPW:{5} --variable ADMINDOMAIN:{6} {1} {0}'.format(job['TestPath'], job['TestArguments'], reservation_id, config["host"], config["username"], config["password"], config["domain"])
+        command = 'cd /opt/BasicCloudShellRobot/Robot;robot --variable RESERVATIONID:{2} --variable SERVERADDRESS:{3} --variable ADMINUSER:{4} --variable ADMINPW:{5} --variable ADMINDOMAIN:{6} {1} {0}'.format(job['TestPath'], job['TestArguments'], reservation_id, config["host"], config["username"], config["password"], config["domain"])
     else:
-        command = 'cd /mnt/c/Users/chris/Documents/GitHub/BasicCloudShellRobot/Robot;robot --variable RESERVATIONID:{1} --variable SERVERADDRESS:{2} --variable ADMINUSER:{3} --variable ADMINPW:{4} --variable ADMINDOMAIN:{5} {0}'.format(job['TestPath'], reservation_id, config["host"], config["username"], config["password"], config["domain"])
+        command = 'cd /opt/BasicCloudShellRobot/Robot;robot --variable RESERVATIONID:{1} --variable SERVERADDRESS:{2} --variable ADMINUSER:{3} --variable ADMINPW:{4} --variable ADMINDOMAIN:{5} {0}'.format(job['TestPath'], reservation_id, config["host"], config["username"], config["password"], config["domain"])
     print ('Running ' + command)
     try:
         result = process_runner.execute(command, job['ExecutionId'])
