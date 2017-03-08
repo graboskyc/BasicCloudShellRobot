@@ -8,4 +8,4 @@ This is a repository with a proof-of-concept easy implementation of calling Robo
 * Note that you may need to modify the config.json... I'm working on that
 * Create a Blueprint with a single resource with the resource script HelloWorld.py attached
 * Create a job suite for Robot using the above blueprint. Valid tests should be as follows:
-!()[Images/SnQSS.png]
+![](Images/SnQSS.png)
