@@ -1,10 +1,12 @@
 {
-"host" : "http://localhost:9000",
+"protocol":"http",
+"host" : "192.168.2.251",
+"port":"9000",
 "username" : "admin",
 "password" : "admin",
 "domain" : "Global",
-"name" : "Robot01",
+"name" : "Robot02",
 "description" : "Reference implementation CES in Python",
-"type" : "Python",
-"capacity" : "5"
+"type" : "Robot",
+"capacity" : "1"
 }
