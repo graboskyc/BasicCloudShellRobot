@@ -22,17 +22,17 @@ class CSWrapperLibrary(object):
         self._result = self._wrapper.run(resource, cmd, resid, serveraddr, adminuser, adminpw, admindom)
         print self._result
 
-    def attach_file(self, filename, resid, serveraddr, adminuser, adminpw, admindom):
+    def attach_file(self, filename, prettyname, resid, serveraddr, adminuser, adminpw, admindom):
         """Attaches log.
 
         The given value is passed to the calculator directly. Valid buttons
         are everything that the calculator accepts.
 
         Examples:
-        | Attach file  | report.xml |   b4f0e958-52bb-4bd3-81f9-a020bb040bb1 |  localhost   | admin | admin | Global |
+        | Attach file  | /opt/Robot/report.xml |    | report.xml    |   b4f0e958-52bb-4bd3-81f9-a020bb040bb1 |  localhost   | admin | admin | Global |
 
         """
-        self._result = self._wrapper.attachfile(filename, resid, serveraddr, adminuser, adminpw, admindom)
+        self._result = self._wrapper.attachfile(filename, prettyname, resid, serveraddr, adminuser, adminpw, admindom)
         print self._result
 
     def result_should_contain(self, containsstr):

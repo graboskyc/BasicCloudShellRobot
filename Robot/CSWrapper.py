@@ -21,13 +21,13 @@ class CSWrapper(object):
         except:
             raise CSWrapperError("Could not run command")
 
-    def attachfile(self, filename, resid, serveraddr, adminuser, adminpw, admindom):
+    def attachfile(self, filename, prettyname, resid, serveraddr, adminuser, adminpw, admindom):
         try:
             token = self._get_quali_api_session(serveraddr, adminuser, adminpw, admindom)
 
             request_url = 'http://' + serveraddr + ':' + '9000/API/Package/AttachFileToReservation'
 
-            data = {"reservationId": resid, "saveFileAs": filename, "overwriteIfExists": "True"}
+            data = {"reservationId": resid, "saveFileAs": prettyname, "overwriteIfExists": "True"}
 
             with open(filename) as attachment:
                 response = requests.post(request_url, headers={"Authorization": token},files={"QualiPackage": attachment}, data=data)
