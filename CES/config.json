@@ -5,7 +5,7 @@
 "username" : "admin",
 "password" : "admin",
 "domain" : "Global",
-"name" : "Robot02",
+"name" : "Robot01",
 "description" : "Python Robot Framework tests executed with Quali CloudShell SnQ",
 "type" : "Robot",
 "capacity" : "1"
