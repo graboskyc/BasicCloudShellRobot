@@ -31,9 +31,6 @@ RUN pip install robotframework
 RUN pip install requests
 RUN pip install cloudshell-automation-api
 
-# configure quali custom exe server
-RUN /usr/bin/python /opt/BasicCloudShellRobot/CES/ces.py register
-
 # run container
-CMD service ssh start;/usr/bin/python /opt/BasicCloudShellRobot/CES/ces.py;bash
+CMD service ssh start;/usr/bin/python /opt/BasicCloudShellRobot/CES/ces.py register;/usr/bin/python /opt/BasicCloudShellRobot/CES/ces.py;bash
 EXPOSE 22
