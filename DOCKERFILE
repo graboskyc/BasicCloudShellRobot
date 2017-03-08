@@ -6,7 +6,7 @@ ENV CONTAINER_SHELL=bash
 ENV CONTAINER=
 
 # Install all packages
-RUN apt-get clean && apt-get update && apt-get install -y git whois python2.7 openssh-server
+RUN apt-get clean && apt-get update && apt-get install -y git whois python2.7 openssh-server vim
 RUN ln /usr/bin/python2.7 /usr/bin/python
 RUN apt-get install -y python-pip
 
