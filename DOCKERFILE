@@ -1,6 +1,6 @@
 MAINTAINER graboskyc
 
-FROM FROM ubuntu:16.02
+FROM FROM ciros:0.3.4
 
 ENV PORT=22
 ENV CONTAINER_SHELL=bash
@@ -24,7 +24,7 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 RUN service ssh start
 
 # add a quali user for debug
-RUN useradd su -d /opt/BasicCloudShellRobot -M -s /bin/bash -p `mkpasswd Password1`
+RUN useradd qualisystems -d /opt/BasicCloudShellRobot -M -s /bin/bash -p `mkpasswd Password1`
 
 # configure robot and Quali Libraries
 RUN pip install robotframework
