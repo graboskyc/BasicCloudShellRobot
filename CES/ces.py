@@ -10,9 +10,11 @@ from api import Api
 current_executions = []
 api = None
 process_runner = utility.ProcessRunner()
+config = None
 
 
 def main():
+    global config
     config = utility.load_configuration()
     global api
     api = Api(config['host'], config['name'], config['description'], config['type'])
@@ -43,6 +45,8 @@ def _execute_job(job):
     """Perform the actual execution.
        This Implementation assumes testPath is the path to an executable and runs it.
        Other Implementations may interpret this data in a different way."""
+
+    global config
     print("Received execution command triggered by " + job['UserName'])
     
     reservation_id = job.get('ReservationId')
@@ -55,7 +59,7 @@ def _execute_job(job):
 
     current_executions.append(job['ExecutionId'])  # Keep track of current executions for update_status_loop.
     if job['TestArguments'] is not None:
-        command = '{0} {1}'.format(job['TestPath'], job['TestArguments'])
+        command = 'robot {1} --variable RESERVATIONID:{2} --variable SERVERADDRESS:{3} --variable ADMINUSER:{4} --variable ADMINPW:{5} --variable ADMINDOMAIN:{6} {0}'.format(job['TestPath'], job['TestArguments'], reservation_id, config["host"], config["username"], config["password"], config["domain"])
     else:
         command = job['TestPath']
     print ('Running ' + command)

@@ -23,6 +23,9 @@ RUN mv -f /opt/BasicCloudShellRobot/sshd_config /etc/ssh/
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 RUN service ssh start
 
+# add a quali user for debug
+RUN useradd su -d /opt/BasicCloudShellRobot -M -s /bin/bash -p `mkpasswd Password1`
+
 # configure robot and Quali Libraries
 RUN pip install robotframework
 RUN pip install cloudshell-automation-api
