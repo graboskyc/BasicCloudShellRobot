@@ -28,6 +28,7 @@ RUN useradd qualisystems -d /opt/BasicCloudShellRobot -M -s /bin/bash -p `mkpass
 
 # configure robot and Quali Libraries
 RUN pip install robotframework
+RUN pip install requests
 RUN pip install cloudshell-automation-api
 
 # configure quali custom exe server
