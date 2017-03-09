@@ -22,7 +22,7 @@ This is a repository with a proof-of-concept easy implementation of calling Robo
 # Modifications
 Note that the default config.json has the IP you need. You likely need to modify it:
 * SSH to that ubuntu box
-* `ssh -l qualisystems localhost -p` and password is `Password`
+* `ssh -l qualisystems localhost -p 2222` and password is `Password1` or `docker ps` and identify container ID, then `docker exec -u 0 -it {cntrid} bash`
 * You should be /opt/BasicCloudShellRobot
 * `cd CES`
 * `vi config.json` and change the IP address there and save 
