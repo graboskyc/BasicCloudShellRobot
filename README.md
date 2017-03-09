@@ -18,3 +18,13 @@ This is a repository with a proof-of-concept easy implementation of calling Robo
 
 ## From Dockerhub
 * `docker run -t -i -d -p 2222:22 --name qsrobot graboskyc/qualicsrobot `
+
+# Modifications
+Note that the default config.json has the IP you need. You likely need to modify it:
+* SSH to that ubuntu box
+* `ssh -l qualisystems localhost -p` and password is `Password`
+* You should be /opt/BasicCloudShellRobot
+* `cd CES`
+* `vi config.json` and change the IP address there and save 
+* rerun the register routine: `python ces.py register`
+* run the actual Custom Execution Server `python ces.py` and you probably want to nohup that... 
