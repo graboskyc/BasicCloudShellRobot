@@ -1,5 +1,5 @@
 # BasicCloudShellRobot
-This is a repository with a proof-of-concept easy implementation of calling Robot Tests (Python Robot Framework) from Quali CloudShell SnQ
+This is a repository with a proof-of-concept easy implementation of calling Robot Tests (Python Robot Framework) from Quali CloudShell SnQ. [Sample screenshots in this pptx](Images/CloudShellRobot.pptx)
 
 # Setup
 * Deploy a linux VM (Ubuntu)
