@@ -28,3 +28,10 @@ Note that the default config.json has the IP you need. You likely need to modify
 * `vi config.json` and change the IP address there and save 
 * rerun the register routine: `python ces.py register`
 * run the actual Custom Execution Server `python ces.py` and you probably want to nohup that... 
+
+## Persistant Modifications
+* Run `docker run -i -t -d --name qsrobot -v /root/qsrobot:/opt/BasicCloudShellRobot -p 2222:22 graboskyc/qualicsrobot`
+* `docker ps` and find the running container for qsrobot and stop it using `docker stop {containerid}`
+* Run `cd /root/qsrobot; git clone https://github.com/graboskyc/BasicCloudShellRobot.git .`
+* Modify the /root/qsrobot/CES/config.json
+* Run `docker start {containerid}`
