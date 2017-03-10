@@ -30,8 +30,8 @@ Note that the default config.json has the IP you need. You likely need to modify
 * run the actual Custom Execution Server `python ces.py` and you probably want to nohup that... 
 
 ## Persistant Modifications
-* Run `docker run -i -t -d --name qsrobot -v /root/qsrobot:/opt/BasicCloudShellRobot -p 2222:22 graboskyc/qualicsrobot`
+* Run `docker run -i -t -d --name qsrobot -v /root/qsrobot:/opt/BasicCloudShellRobot graboskyc/qualicsrobot`
 * `docker ps` and find the running container for qsrobot and stop it using `docker stop {containerid}`
-* Run `cd /root/qsrobot; git clone https://github.com/graboskyc/BasicCloudShellRobot.git .`
+* Run `mkdir /root/qsrobot;cd /root/qsrobot; git clone https://github.com/graboskyc/BasicCloudShellRobot.git .`
 * Modify the /root/qsrobot/CES/config.json
 * Run `docker start {containerid}`
