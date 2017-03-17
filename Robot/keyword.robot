@@ -7,5 +7,5 @@ Run command on resources
     register cloudshell     ${RESERVATIONID}     ${SERVERADDRESS}    ${ADMINUSER}    ${ADMINPW}  ${ADMINDOMAIN}
     Run resource command    Dummy    HelloWorld     
     result_should_contain   World
-    Run resource command    Dummy    Repeat     TEXT:foobar
+    Run resource command with inputs    Dummy    Repeat     TEXT:foobar
     result_should_contain   foo

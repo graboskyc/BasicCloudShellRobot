@@ -16,10 +16,23 @@ class CSWrapperLibrary(object):
         are everything that the calculator accepts.
 
         Examples:
-        | Run resource command  | Dummy |   HelloWorld  
+        | Run resource command  | Dummy |   HelloWorld
 
         """
         self._result = self._wrapper.run(resource, cmd)
+        print self._result
+
+    def run_resource_command_with_inputs(self, resource, cmd, inputs):
+        """Runs the specified ``cmd`` on a given ``resource`` in a specific ``resid``.
+
+        The given value is passed to the calculator directly. Valid buttons
+        are everything that the calculator accepts.
+
+        Examples:
+        | Run resource command  | Dummy |   HelloWorld  |   kvp:kvp
+
+        """
+        self._result = self._wrapper.runinput(resource, cmd, inputs)
         print self._result
 
     def register_cloudshell(self, resid, serveraddr, adminuser, adminpw, admindom):
