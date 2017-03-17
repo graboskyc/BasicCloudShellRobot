@@ -45,7 +45,7 @@ class CSWrapper(object):
     def run(self, resource, cmd):
         try:
             csapi = CloudShellAPISession(self._serveraddr, self._adminuser, self._adminpw, self._admindom)
-            out = csapi.ExecuteCommand(self._resid, resource, "Resource", cmd, argList)
+            out = csapi.ExecuteCommand(self._resid, resource, "Resource", cmd)
             csapi.Logoff()
             self._cmdOut = out.Output
             return self._cmdOut
