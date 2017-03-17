@@ -24,10 +24,17 @@ class CSWrapper(object):
         self._admindom = admindom
 
 
-    def run(self, resource, cmd):
+    def run(self, resource, cmd, inputs=''):
         try:
             csapi = CloudShellAPISession(self._serveraddr, self._adminuser, self._adminpw, self._admindom)
-            out = csapi.ExecuteCommand(self._resid, resource, "Resource", cmd)
+
+            inputList = inputs.split(',')
+            argList = []
+            for item in inputList:
+                kvp = item.split(':')
+                qinv = qualipy.api.cloudshell_api.InputNameValue(kvp[0],kvp[1])
+                argList.append(qinv)
+            out = csapi.ExecuteCommand(self._resid, resource, "Resource", cmd, argList)
             csapi.Logoff()
             self._cmdOut = out.Output
             return self._cmdOut

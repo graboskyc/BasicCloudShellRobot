@@ -5,5 +5,7 @@ Library           CSWrapperLibrary.py
 *** Test Cases ***
 Run command on resources
     register cloudshell     ${RESERVATIONID}     ${SERVERADDRESS}    ${ADMINUSER}    ${ADMINPW}  ${ADMINDOMAIN}
-    Run resource command    Dummy    HelloWorld
+    Run resource command    Dummy    HelloWorld     
     result_should_contain   World
+    Run resource command    Dummy    Repeat     TEXT:foobar
+    result_should_contain   foo
