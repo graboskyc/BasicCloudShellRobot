@@ -9,18 +9,30 @@ class CSWrapperLibrary(object):
         self._wrapper = CSWrapper()
         self._result = ''
 
-    def run_resource_command(self, resource, cmd, resid, serveraddr, adminuser, adminpw, admindom):
+    def run_resource_command(self, resource, cmd):
         """Runs the specified ``cmd`` on a given ``resource`` in a specific ``resid``.
 
         The given value is passed to the calculator directly. Valid buttons
         are everything that the calculator accepts.
 
         Examples:
-        | Run resource command  | Dummy |   HelloWorld  |   b4f0e958-52bb-4bd3-81f9-a020bb040bb1 |  localhost   | admin | admin | Global |
+        | Run resource command  | Dummy |   HelloWorld  
 
         """
-        self._result = self._wrapper.run(resource, cmd, resid, serveraddr, adminuser, adminpw, admindom)
+        self._result = self._wrapper.run(resource, cmd)
         print self._result
+
+    def register_cloudshell(self, resid, serveraddr, adminuser, adminpw, admindom):
+        """register the api call for `resid`.
+
+        The given value is passed to the calculator directly. Valid buttons
+        are everything that the calculator accepts.
+
+        Examples:
+        | register cloudshell  |   b4f0e958-52bb-4bd3-81f9-a020bb040bb1 |  localhost   | admin | admin | Global |
+
+        """
+        self._result = self._wrapper.registercloudshell(resid, serveraddr, adminuser, adminpw, admindom)
 
     def attach_file(self, filename, prettyname, resid, serveraddr, adminuser, adminpw, admindom):
         """Attaches log.

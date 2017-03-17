@@ -4,6 +4,11 @@ import requests
 class CSWrapper(object):
     def __init__(self):
         self._cmdOut = ''
+        self._resid = ''
+        self._serveraddr = ''
+        self._adminuser = ''
+        self._adminpw = ''
+        self._admindom = ''
 
     def _get_quali_api_session(self, serveraddr, adminuser, adminpw, admindom):
         login_url = 'http://' + serveraddr + ':' + '9000/API/Auth/Login'
@@ -11,10 +16,18 @@ class CSWrapper(object):
         authorization_code = "Basic " + login_request._content[1:-1]
         return authorization_code
 
-    def run(self, resource, cmd, resid, serveraddr, adminuser, adminpw, admindom):
+    def registercloudshell(self, resid, serveraddr, adminuser, adminpw, admindom):
+        self._resid = resid
+        self._serveraddr = serveraddr
+        self._adminuser = adminuser
+        self._adminpw = adminpw
+        self._admindom = admindom
+
+
+    def run(self, resource, cmd):
         try:
-            csapi = CloudShellAPISession(serveraddr, adminuser, adminpw, admindom)
-            out = csapi.ExecuteCommand(resid, resource, "Resource", cmd)
+            csapi = CloudShellAPISession(self._serveraddr, self._adminuser, self._adminpw, self._admindom)
+            out = csapi.ExecuteCommand(self._resid, resource, "Resource", cmd)
             csapi.Logoff()
             self._cmdOut = out.Output
             return self._cmdOut
