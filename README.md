@@ -11,6 +11,8 @@ This is a repository with a proof-of-concept easy implementation of calling Robo
 
 ![](Images/SnQSS.PNG)
 
+![](Images/ss2.PNG)
+
 # Deploying docker container
 ## From source
 * `docker build -t gskyqsrobot`
